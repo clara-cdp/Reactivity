@@ -13,7 +13,7 @@ function Header() {
                 <h1 className="text-3xl font-bold uppercase">Reactivity</h1>
                 <span className="text-zinc-400 text-sm">1/1 done today</span>
             </div>
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 items-end">
                 <span className="text-zinc-400 text-sm">April- 6 - April 21</span>
                 <div className="flex items-center gap-3">
                     <Button>Prev</Button>
