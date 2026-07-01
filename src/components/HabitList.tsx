@@ -1,7 +1,11 @@
 import {Button} from "./Button"
 
 export function HabitList() {
-    const habits = ["habit 1", "habit 2", "habit 3"]
+    const habits = [
+        { id: 1, name: "habit 1" },
+        { id: 2, name: "habit 2" },
+        { id: 3, name: "habit 3" }
+    ]
    
     if (habits.length === 0) {
         return (
@@ -11,8 +15,8 @@ export function HabitList() {
 
     return (
         <div className="flex flex-col gap-3">
-            {habits.map(habit => (
-                <h1>{habit}</h1>
+            {habits.map((habit, index) => (
+                <h1 key={index}>{habit.name}</h1>
             ))}
     </div>
     )
