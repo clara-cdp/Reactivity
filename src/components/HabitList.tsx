@@ -1,7 +1,7 @@
 import {Button} from "./Button"
 
 export function HabitList() {
-    const habits = []
+    const habits = ["habit 1", "habit 2", "habit 3"]
    
     if (habits.length === 0) {
         return (
@@ -9,5 +9,11 @@ export function HabitList() {
         )
     }
 
-   return <h1>full</h1>
+    return (
+        <div className="flex flex-col gap-3">
+            {habits.map(habit => (
+                <h1>{habit}</h1>
+            ))}
+    </div>
+    )
 }
