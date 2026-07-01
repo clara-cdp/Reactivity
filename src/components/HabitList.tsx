@@ -1,4 +1,4 @@
-import {Button} from "./Button"
+import { HabitItem } from "./HabitItem"
 
 export function HabitList() {
     const habits = [
@@ -15,8 +15,8 @@ export function HabitList() {
 
     return (
         <div className="flex flex-col gap-3">
-            {habits.map((habit, index) => (
-                <h1 key={index}>{habit.name}</h1>
+            {habits.map(habit => (
+                <HabitItem key={habit.id} habit={habit}/>
             ))}
     </div>
     )
