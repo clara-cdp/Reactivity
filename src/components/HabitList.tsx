@@ -1,15 +1,17 @@
-import { HabitItem } from "./HabitItem"
+import { HabitItem, type Habit } from "./HabitItem"
 
-export function HabitList() {
-    const habits = [
-        { id: 1, name: "habit 1" },
-        { id: 2, name: "habit 2" },
-        { id: 3, name: "habit 3" }
-    ]
+
+type HabitListProps = {
+    habits: Habit[]
+}
+
+export function HabitList({habits}: HabitListProps) {
    
     if (habits.length === 0) {
         return (
-            < p className="text-center text-zinc-500 py-12" > No habits yet. Add a new habit above to get started</ p>     
+            <p className="text-center text-zinc-500 py-12" >
+                No habits yet. Add a new habit above to get started
+            </p>     
         )
     }
 
@@ -20,4 +22,4 @@ export function HabitList() {
             ))}
     </div>
     )
-}
+} 
