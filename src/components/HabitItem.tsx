@@ -5,9 +5,10 @@ export type Habit = { id: string; name: string }
 
 type HabitItemProps = {
     habit: Habit
+    deleteHabit:(id:string)=>void
 }
 
-export function HabitItem({ habit }: HabitItemProps) {
+export function HabitItem({ habit, deleteHabit }: HabitItemProps) {
     const visibleDates = eachDayOfInterval({
         start: startOfWeek(new Date(), { weekStartOn: 1 }),
         end: endOfWeek(new Date(), { weekStartOn: 1 }),
@@ -20,7 +21,12 @@ export function HabitItem({ habit }: HabitItemProps) {
                     <span className="font-medium">{habit.name}</span>
                     <span className="text-sm text-amber-400">3 🔥</span>
                 </div>
-                <Button variant="delete" className="text-sm">Delete</Button>
+                <Button onClick={()=> deleteHabit(habit.id)}
+                    variant="delete"
+                    className="text-sm"
+                >
+                    Delete
+                </Button>
             </div>
             <div className="flex gap-1.5">
                 {visibleDates.map(date => (
