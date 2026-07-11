@@ -3,10 +3,15 @@ import { HabitItem, type Habit } from "./HabitItem"
 
 type HabitListProps = {
     habits: Habit[]
-    deleteHabit: (id:string)=> void
+    deleteHabit: (id: string) => void
+    toggleHabit: (id: string, date: Date) => void
 }
 
-export function HabitList({habits, deleteHabit}: HabitListProps) {
+export function HabitList({
+    habits,
+    deleteHabit,
+    toggleHabit
+}: HabitListProps) {
    
     if (habits.length === 0) {
         return (
@@ -19,7 +24,12 @@ export function HabitList({habits, deleteHabit}: HabitListProps) {
     return (
         <div className="flex flex-col gap-3">
             {habits.map(habit => (
-                <HabitItem deleteHabit={deleteHabit} key={habit.id} habit={habit}/>
+                <HabitItem
+                    deleteHabit={deleteHabit}
+                    toggleHabit={toggleHabit}
+                    key={habit.id}
+                    habit={habit}
+                />
             ))}
     </div>
     )

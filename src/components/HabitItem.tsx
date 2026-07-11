@@ -1,18 +1,19 @@
 import { Button } from "./Button"
-import { startOfWeek, endOfWeek, eachDayOfInterval, format, isFuture } from "date-fns"
+import { startOfWeek, endOfWeek, eachDayOfInterval, format, isFuture, isSameDay } from "date-fns"
 
-export type Habit = { id: string; name: string }
+export type Habit = { id: string; name: string; completions: Date[] }
 
 type HabitItemProps = {
     habit: Habit
-    deleteHabit:(id:string)=>void
+    deleteHabit: (id: string) => void
+    toggleHabit: (id: string, date:Date) => void
 }
 
-export function HabitItem({ habit, deleteHabit }: HabitItemProps) {
+export function HabitItem({ habit, deleteHabit, toggleHabit }: HabitItemProps) {
     const visibleDates = eachDayOfInterval({
-        start: startOfWeek(new Date(), { weekStartOn: 1 }),
-        end: endOfWeek(new Date(), { weekStartOn: 1 }),
-    })
+    start: startOfWeek(new Date(), { weekStartsOn: 1 }),
+    end: endOfWeek(new Date(), { weekStartsOn: 1 }),
+  });
 
     return (
         <div className="rounded-xl bg-zinc-800 p-4 flex flex-col gap-3">
@@ -33,7 +34,14 @@ export function HabitItem({ habit, deleteHabit }: HabitItemProps) {
                     <Button
                         className="flex flex-1 flex-col items-center gap-0.5 text-xs"
                         key={date.toISOString()}
-                        disabled={isFuture(date)}>
+                        disabled={isFuture(date)}
+                        onClick={()=>toggleHabit(habit.id, date)}
+                        variant={
+                            habit.completions.some(d => isSameDay(date, d))
+                            ? "primary"
+                            : "secondary"
+                        }
+                    >
                         <span className="font-medium">{ format(date, "EEE")}</span>
                         <span className="font-medium">{ format(date, "d")}</span>
                      </Button>
