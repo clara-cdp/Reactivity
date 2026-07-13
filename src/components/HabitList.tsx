@@ -1,5 +1,5 @@
 import { HabitItem } from "./HabitItem"
-import { useHabits } from "../context/HabitProvider"
+import { useHabits } from "../context/useHabits"
 
 
 export function HabitList() {

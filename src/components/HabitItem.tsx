@@ -1,6 +1,6 @@
 import { Button } from "./Button"
 import { startOfWeek, endOfWeek, eachDayOfInterval, format, isFuture, isSameDay, subDays } from "date-fns"
-import { useHabits, type Habit } from "../context/HabitProvider";
+import { useHabits, type Habit } from "../context/useHabits";
 
 type HabitItemProps = {
     habit: Habit
