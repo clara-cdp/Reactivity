@@ -1,15 +1,14 @@
 import { Button } from "./Button"
 import { startOfWeek, endOfWeek, eachDayOfInterval, format, isFuture, isSameDay, subDays } from "date-fns"
-
-export type Habit = { id: string; name: string; completions: Date[] }
+import { useHabits, type Habit } from "../context/useHabits";
 
 type HabitItemProps = {
     habit: Habit
-    deleteHabit: (id: string) => void
-    toggleHabit: (id: string, date:Date) => void
 }
 
-export function HabitItem({ habit, deleteHabit, toggleHabit }: HabitItemProps) {
+export function HabitItem({ habit}: HabitItemProps) {
+    const {deleteHabit, toggleHabit} = useHabits()
+
     const visibleDates = eachDayOfInterval({
     start: startOfWeek(new Date(), { weekStartsOn: 1 }),
     end: endOfWeek(new Date(), { weekStartsOn: 1 }),
@@ -53,7 +52,7 @@ export function HabitItem({ habit, deleteHabit, toggleHabit }: HabitItemProps) {
     )
 }
 
-function getStreak(completions: Date) {
+function getStreak(completions: Date[]) {
     let streak = 0
     let date = new Date()
     while (completions.some(c => isSameDay(c, date))) {
