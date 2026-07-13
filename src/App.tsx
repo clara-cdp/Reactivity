@@ -3,6 +3,7 @@ import { Header } from "./components/Header"
 import { HabitForm } from "./components/Habitform"
 import { HabitList } from "./components/HabitList"
 import { isSameDay } from "date-fns"
+import { HabitProvider } from "./context/HabitProvider"
 
 export default function App() {
     const [habits, setHabits] = useState < Habit[] > ([])
@@ -37,12 +38,14 @@ export default function App() {
     }
     
     return <div className="max-w-2xl mx-auto p-4 flex flex-col gap-4">
-        <Header/>
-        <HabitForm addHabit={addHabit}/>
-        <HabitList
-            deleteHabit={deleteHabit}
-            toggleHabit={toggleHabit}
-            habits={habits} />
+        <HabitProvider>
+            <Header/>
+            <HabitForm addHabit={addHabit}/>
+            <HabitList
+                deleteHabit={deleteHabit}
+                toggleHabit={toggleHabit}
+                habits={habits} />
+        </HabitProvider>
   </div>
 }
 
