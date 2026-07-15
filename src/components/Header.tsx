@@ -4,9 +4,11 @@ import { isToday, format } from "date-fns"
 
 type HeaderProps = {
     visibleDates: Date[]
+    onPrev: ()=> void
+    onNext: ()=> void
 }
 
-export function Header({ visibleDates }: HeaderProps) {
+export function Header({ visibleDates, onPrev, onNext }: HeaderProps) {
 
     const { habits } = useHabits()
     const doneToday = habits.filter(h =>
@@ -23,8 +25,8 @@ export function Header({ visibleDates }: HeaderProps) {
             <div className="flex flex-col gap-1 items-end">
                 <span className="text-zinc-400 text-sm">{dateRange}</span>
                 <div className="flex items-center gap-3">
-                    <Button>Prev</Button>
-                    <Button>Next</Button>
+                    <Button onClick={onPrev}>Prev</Button>
+                    <Button onClick={onNext}>Next</Button>
                 </div>
                     
             </div>
