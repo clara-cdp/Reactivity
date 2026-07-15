@@ -1,6 +1,8 @@
 import type { ComponentProps } from "react"
 import {twMerge} from "tailwind-merge"
 
+type Variant = "primary" | "secondary" | "delete"
+
 type ButtonProps = {
     variant?: Variant
 } & ComponentProps<"button">
