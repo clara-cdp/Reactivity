@@ -1,19 +1,16 @@
 import { Button } from "./Button"
-import { startOfWeek, endOfWeek, eachDayOfInterval, format, isFuture, isSameDay, subDays } from "date-fns"
+import { format, isFuture, isSameDay, subDays } from "date-fns"
 import { useHabits, type Habit } from "../context/useHabits";
 
 type HabitItemProps = {
     habit: Habit
+    visibleDates: Date[]
 }
 
-export function HabitItem({ habit}: HabitItemProps) {
-    const {deleteHabit, toggleHabit} = useHabits()
-
-    const visibleDates = eachDayOfInterval({
-    start: startOfWeek(new Date(), { weekStartsOn: 1 }),
-    end: endOfWeek(new Date(), { weekStartsOn: 1 }),
-  });
-  const streak = getStreak(habit.completions)
+export function HabitItem({ habit, visibleDates}: HabitItemProps) {
+    const { deleteHabit, toggleHabit } = useHabits()
+    const streak = getStreak(habit.completions)
+    
     return (
         <div className="rounded-xl bg-zinc-800 p-4 flex flex-col gap-3">
             <div className="flex items-center justify-between">
