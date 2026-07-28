@@ -17,7 +17,10 @@ export function HabitItem({ habit, visibleDates}: HabitItemProps) {
                 <div className="flex gap-3 items-center">
                     <span className="font-medium">{habit.name}</span>
                     {streak !== 0 && (
-                    <span className="text-sm text-amber-400">{ streak}🔥</span>
+                        <div className="flex items-center gap-1 text-sm text-amber-400">
+                            <span>{streak}</span>
+                            <img src="/assets/reactivity_flame.svg" alt="Streak flame" className="h-4 w-auto object-contain" />
+                        </div>
                     )}
                 </div>
                 <Button onClick={()=> deleteHabit(habit.id)}
