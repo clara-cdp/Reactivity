@@ -1,4 +1,8 @@
-# Reactivity
+# REACTIVITY
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&style=for-the-badge)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&style=for-the-badge)
+![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&style=for-the-badge)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?logo=tailwindcss&style=for-the-badge)
 
 A handmade habit tracker built with React, TypeScript, and Vite. Reactivity helps you build consistency by letting you create habits, track them day by day, and view your progress across the week.
 
@@ -8,12 +12,20 @@ Reactivity is a simple and focused productivity app designed to make daily habit
 
 ## ⚙️ Features
 
-- Add new habits quickly from the main form
-- Track habit completion for each day of the week
-- Navigate between weeks with previous and next controls
-- View a streak count for each habit
-- Delete habits when they are no longer needed
-- Persist habits in the browser with local storage
+### Habit Management
+
+- ✅ Create new habits
+- ✅ Delete habits
+- ✅ Persist habits using Local Storage
+
+### Tracking
+
+- ✅ Track completion by day
+- ✅ Weekly habit view
+- ✅ Weekly navigation
+- ✅ Current streak calculation
+- ✅ Daily progress summary
+
 
 ## 🛠 Tech Stack
 
@@ -41,15 +53,61 @@ Reactivity is a simple and focused productivity app designed to make daily habit
 
 ## 📚 Available Scripts
 
-- `npm run dev` - Start the Vite development server
-- `npm run build` - Build the app for production
-- `npm run preview` - Preview the production build locally
-- `npm run lint` - Run ESLint checks
+| Command | Description |
+|----------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build production bundle |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+
 
 ## 🧬 Project Structure
 
-- `src/components` - UI components such as the header, habit form, list, and item cards
-- `src/context` - Habit state management and provider logic
-- `src/hooks` - Reusable hooks, including local storage persistence
-- `src/App.tsx` - Main app layout and weekly date navigation
+```
+src/
+ ├── components
+ ├── context
+ ├── hooks
+ ├── App.tsx
+```
 
+---
+
+# 🗺️ Roadmap
+
+Features planned for upcoming releases.
+
+## Calendar & Planning
+
+- 📅 Monthly calendar view
+- 📂 Habit categories (Health, Work, Learning...)
+- 🔔 Browser notifications for reminders
+- 📆 Outlook Calendar integration (Microsoft Graph API)
+
+---
+
+## Habit Tracking
+
+- 💤 Skip day without breaking a streak
+- 🎉 Celebrate milestones with confetti animations
+
+---
+
+## Statistics & Insights
+
+- 📈 GitHub-style yearly heatmap
+- 🔥 Current streak
+- 🏆 Longest streak ever
+- 📊 Advanced habit statistics dashboard
+
+---
+
+## Motivation
+
+- 💬 Daily motivational quotes (Quote API)
+
+---
+
+## Future Vision
+
+Reactivity aims to become more than a habit tracker. The long-term goal is to evolve it into a lightweight personal productivity dashboard that combines habit tracking, calendar integration, meaningful statistics, and gentle motivation while keeping the interface clean and distraction-free.
