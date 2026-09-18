@@ -1,8 +1,15 @@
-# REACTIVITY
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&style=for-the-badge)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&style=for-the-badge)
-![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&style=for-the-badge)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-06B6D4?logo=tailwindcss&style=for-the-badge)
+<p align="center">
+  <img height="100" alt="reactivity_logo" src="https://github.com/user-attachments/assets/c278b4c3-966e-49af-8b53-a22611f63133" />
+</p>
+
+<p align="center">
+  <img  src="https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React" />
+  <img  src="https://img.shields.io/badge/TypeScript-20232A?style=flat-square&logo=typescript&logoColor=3178C6" alt="TypeScript" />
+  <img  src="https://img.shields.io/badge/Vite-20232A?style=flat-square&logo=vite&logoColor=646CFF" alt="Vite" />
+  <img  src="https://img.shields.io/badge/Tailwind_CSS-20232A?style=flat-square&logo=tailwindcss&logoColor=06B6D4" alt="Tailwind CSS" />
+   <img height="25" src="https://img.shields.io/badge/Vitest-20232A?style=flat-square&logo=vitest&logoColor=FCC72B" alt="Vitest" />
+<img height="25" src="https://img.shields.io/badge/Testing_Library-20232A?style=flat-square&logo=testinglibrary&logoColor=E33332" alt="React Testing Library" />
+</p>
 
 A handmade habit tracker built with React, TypeScript, and Vite. Reactivity helps you build consistency by letting you create habits, track them day by day, and view your progress across the week.
 
@@ -70,6 +77,20 @@ src/
  ├── hooks
  ├── App.tsx
 ```
+
+---
+
+## Testing Strategy & Implementation
+
+Quality assurance and regression prevention are prioritized early in Reactivity's lifecycle. Before expanding the feature set, an end-to-end testing suite is being established to guarantee that state mutations, storage persistence, and core UI workflows remain rock-solid.
+
+### Testing Stack
+
+* **[Vitest](https://vitest.dev/):** A native, blazing-fast test runner tailored for Vite. It reuses the app's existing Vite build pipeline and plugin configurations without dual-tooling overhead.
+* **[React Testing Library](https://testing-library.com/docs/react-testing-library/intro/):** Encourages behavioral tests from the user's perspective rather than testing implementation details.
+* **[jsdom](https://github.com/jsdom/jsdom):** A pure-JavaScript implementation of web standards that provides a browser-like DOM environment inside Node.js.
+* **[@testing-library/jest-dom](https://github.com/testing-library/jest-dom):** Extends matchers to deliver expressive, readable assertions (e.g., `toBeInTheDocument()`, `toHaveValue()`).
+* **[@testing-library/user-event](https://testing-library.com/docs/user-event/intro):** Simulates real user interactions (typing, clicking, toggling) with accurate browser event dispatching.
 
 ---
 
