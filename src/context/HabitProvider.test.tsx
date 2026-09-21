@@ -113,4 +113,24 @@ describe('HabitProvider & useHabits', () => {
     })
 })
 
+it('should only toggle the selected habit', () => {
+    const { result } = renderHook(() => useHabits(), {
+        wrapper: HabitProvider,
+    })
+
+    act(() => {
+        result.current.addHabit('Read')
+        result.current.addHabit('Exercise')
+    })
+
+    const firstHabitId = result.current.habits[0].id
+    const date = new Date(2026, 8, 21)
+
+    act(() => {
+        result.current.toggleHabit(firstHabitId, date)
+    })
+
+    expect(result.current.habits[0].completions).toHaveLength(1)
+    expect(result.current.habits[1].completions).toHaveLength(0)
+})
 
